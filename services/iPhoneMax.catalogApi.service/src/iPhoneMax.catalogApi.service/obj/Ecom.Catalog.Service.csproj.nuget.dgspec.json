@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Ecom.PhoneMax\\Ecom.Catalog\\src\\Ecom.Catalog.Service\\Ecom.Catalog.Service.csproj": {}
+    "C:\\Projects\\Ecom.iPhoneMax\\services\\iPhoneMax.catalogApi.service\\src\\iPhoneMax.catalogApi.service\\Ecom.Catalog.Service.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Ecom.PhoneMax\\Ecom.Catalog\\src\\Ecom.Catalog.Service\\Ecom.Catalog.Service.csproj": {
+    "C:\\Projects\\Ecom.iPhoneMax\\services\\iPhoneMax.catalogApi.service\\src\\iPhoneMax.catalogApi.service\\Ecom.Catalog.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Ecom.PhoneMax\\Ecom.Catalog\\src\\Ecom.Catalog.Service\\Ecom.Catalog.Service.csproj",
+        "projectUniqueName": "C:\\Projects\\Ecom.iPhoneMax\\services\\iPhoneMax.catalogApi.service\\src\\iPhoneMax.catalogApi.service\\Ecom.Catalog.Service.csproj",
         "projectName": "Ecom.Catalog.Service",
-        "projectPath": "C:\\Projects\\Ecom.PhoneMax\\Ecom.Catalog\\src\\Ecom.Catalog.Service\\Ecom.Catalog.Service.csproj",
+        "projectPath": "C:\\Projects\\Ecom.iPhoneMax\\services\\iPhoneMax.catalogApi.service\\src\\iPhoneMax.catalogApi.service\\Ecom.Catalog.Service.csproj",
         "packagesPath": "C:\\Users\\sajid\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Ecom.PhoneMax\\Ecom.Catalog\\src\\Ecom.Catalog.Service\\obj\\",
+        "outputPath": "C:\\Projects\\Ecom.iPhoneMax\\services\\iPhoneMax.catalogApi.service\\src\\iPhoneMax.catalogApi.service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sajid\\AppData\\Roaming\\NuGet\\NuGet.Config"
