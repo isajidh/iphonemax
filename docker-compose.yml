@@ -1,23 +1,54 @@
-version: "3.8"
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+version: "3.4"
 
-services: 
+services:
   mongo:
     image: mongo
     container_name: mongo
     ports:
       - 27017:27017
-    volumes: 
+    volumes:
       - mongodbdata:/data/db
+    hostname: mongo
 
   rabbitmq:
     image: rabbitmq:management
     container_name: rabbitmq
-    ports: 
+    ports:
       - 5672:5672
       - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_VHOST=/
     volumes:
       - rabbitmqdata:/var/lib/rabbitmq
     hostname: rabbitmq
+
+  catalog_api_service:
+    image: ecomcatalogservice
+    build:
+      context: .
+      dockerfile: services/iPhoneMax.catalogApi.service/src/iPhoneMax.catalogApi.service/Dockerfile
+    restart: always
+    depends_on:
+      - rabbitmq
+      - mongo
+    ports:
+      - 5001:5001
+    hostname: catalog
+
+  frontend_service:
+    image: ecomfrontend
+    build:
+      context: services/iPhoneMax.frontEnd.service
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:80
+    depends_on:
+      - catalog_api_service
 
 volumes:
   mongodbdata:
