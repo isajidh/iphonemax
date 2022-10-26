@@ -27,9 +27,6 @@ services:
 
   catalog:
     image: ecomcatalogservice
-    build:
-      context: .
-      dockerfile: ./Dockerfile
     restart: always
     depends_on:
       - rabbitmq

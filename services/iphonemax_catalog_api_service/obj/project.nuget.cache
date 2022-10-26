@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D4pSwNgHbKRvUqriakRhprVFmfFhYAJRgh2ZN1zSJYExvrwjAYUwhYesFCGnV5IRD/bf+2iSFUMO7CjbqmwZ2g==",
+  "dgSpecHash": "zJQNDWjseBBrPeQKJ1xCPjiMdjT4TI9Lz8IKZi8jXqo/KwY295bb4iZ9NxuCMTzw8atc8D4YlgOsQvWn1ccUfQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Ecom.iPhoneMax\\services\\iPhoneMax.catalogApi.service\\src\\iPhoneMax.catalogApi.service\\Ecom.Catalog.Service.csproj",
+  "projectFilePath": "C:\\Projects\\iPhoneMax\\services\\iphonemax_catalog_api_service\\Ecom.Catalog.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sajid\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\sajid\\.nuget\\packages\\ecommerce.phonemax.api\\1.0.0\\ecommerce.phonemax.api.1.0.0.nupkg.sha512",
