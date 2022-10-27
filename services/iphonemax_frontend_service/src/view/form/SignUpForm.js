@@ -12,6 +12,8 @@ import {
 }
     from 'mdb-react-ui-kit';
 import '../../Assets/styles/SignUpForm.css';
+
+
 function SignUpForm() {
     return (
         <div>

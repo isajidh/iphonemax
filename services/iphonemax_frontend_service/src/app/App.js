@@ -9,14 +9,6 @@ import { SignUp } from '../view/SignUp';
 import { ApplicationPaths } from '../constants';
 import '../Assets/styles/App.css'
 
-// import express from "express";
-// const app = express()
-// import cors from "cors";
-// app.use(cors({
-//     origin:windows.CATALOG_ITEMS_API_URL
-// }));
-
-
 export default class App extends Component {
   static displayName = App.name;
 

@@ -15,6 +15,7 @@ import companyLogo from "../../Assets/Images/Logo/logo.png";
 import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+
 function LoginForm() {
     return (
         <div className='loginBody'>
