@@ -28,27 +28,29 @@ services:
   catalog_api_service:
     image: ecomcatalogservice
     build:
-      context: .
-      dockerfile: services/iPhoneMax.catalogApi.service/src/iPhoneMax.catalogApi.service/Dockerfile
+      context: services/iphonemax_catalog_api_service
+      dockerfile: Dockerfile
     restart: always
     depends_on:
       - rabbitmq
       - mongo
     ports:
       - 5001:5001
+      - 5000:5000
     hostname: catalog
 
   frontend_service:
     image: ecomfrontend
     build:
-      context: services/iPhoneMax.frontEnd.service
-      dockerfile: ./Dockerfile
+      context: services/iphonemax_frontend_service
+      dockerfile: Dockerfile
     environment:
       NODE_ENV: production
     ports:
       - 3000:80
     depends_on:
       - catalog_api_service
+    hostname: frontend
 
 volumes:
   mongodbdata:

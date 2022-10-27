@@ -44,14 +44,14 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "ecomiphonemax:dev",
+                "tag": "iphonemax:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/services/iPhoneMax.catalogApi.service/src/iPhoneMax.catalogApi.service/Dockerfile",
+                "dockerfile": "${workspaceFolder}/services/iphonemax_catalog_api_service/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/services/iPhoneMax.catalogApi.service/src/iPhoneMax.catalogApi.service/Ecom.Catalog.Service.csproj"
+                "appProject": "${workspaceFolder}/services/iphonemax_catalog_api_service/Ecom.Catalog.Service.csproj"
             }
         },
         {
@@ -61,29 +61,24 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "ecomiphonemax:latest",
-                "dockerfile": "${workspaceFolder}/services/iPhoneMax.catalogApi.service/src/iPhoneMax.catalogApi.service/Dockerfile",
+                "tag": "iphonemax:latest",
+                "dockerfile": "${workspaceFolder}/services/iphonemax_catalog_api_service/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/services/iPhoneMax.catalogApi.service/src/iPhoneMax.catalogApi.service/Ecom.Catalog.Service.csproj"
+                "appProject": "${workspaceFolder}/services/iphonemax_catalog_api_service/Ecom.Catalog.Service.csproj"
             }
         },
         {
             "type": "docker-run",
             "label": "docker-run: debug",
             "dependsOn": [
-                "docker-build"
+                "docker-build: debug"
             ],
-            "dockerRun": {
-                "env": {
-                    "DEBUG": "*",
-                    "NODE_ENV": "development"
-                }
-            },
-            "node": {
-                "package": "${workspaceFolder}/services/iPhoneMax.frontEnd.service/package.json",
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/services/iphonemax_catalog_api_service/Ecom.Catalog.Service.csproj",
                 "enableDebugging": true
             }
         },
@@ -91,11 +86,11 @@
             "type": "docker-run",
             "label": "docker-run: release",
             "dependsOn": [
-                "docker-build"
+                "docker-build: release"
             ],
-            "platform": "node",
-            "node": {
-                "package": "${workspaceFolder}/services/iPhoneMax.frontEnd.service/package.json"
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/services/iphonemax_catalog_api_service/Ecom.Catalog.Service.csproj"
             }
         },
         {

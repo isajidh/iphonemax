@@ -32,7 +32,7 @@
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
             "netCore": {
-                "appProject": "${workspaceFolder}/services/iPhoneMax.catalogApi.service/src/iPhoneMax.catalogApi.service/Ecom.Catalog.Service.csproj"
+                "appProject": "${workspaceFolder}/services/iphonemax_catalog_api_service/Ecom.Catalog.Service.csproj"
             }
         },
         {
