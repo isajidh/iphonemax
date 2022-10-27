@@ -39,6 +39,20 @@ services:
       - 5000:5000
     hostname: catalog
 
+  cart_service:
+    image: iphonemax_cart_service
+    build:
+      context: services/iphonemax_cart_service
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - rabbitmq
+      - mongo
+    ports:
+      - 5005:5005
+      - 5004:5004
+    hostname: cart
+
   frontend_service:
     image: ecomfrontend
     build:
@@ -50,6 +64,7 @@ services:
       - 3000:80
     depends_on:
       - catalog_api_service
+      - cart_service
     hostname: frontend
 
 volumes:

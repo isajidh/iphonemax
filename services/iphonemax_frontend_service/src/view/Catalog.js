@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Container, Row, Table, Button } from 'react-bootstrap';
 import ItemModal from '../model/ItemModal';
-// import AddToCartModal from '../model/AddToCartModal';
+import AddToCartModal from '../model/AddToCartModal';
 
 
 export class Catalog extends Component {
@@ -98,8 +98,8 @@ export class Catalog extends Component {
                           item={item}
                           updateItemIntoState={this.updateState} />
                         &nbsp;&nbsp;&nbsp;
-                        {/* <AddToCartModal
-                          item={item} /> */}
+                        <AddToCartModal
+                          item={item} />
                         &nbsp;&nbsp;&nbsp;
                         <Button variant="danger" onClick={() => this.deleteItem(item.id)}>Delete</Button>
                       </div>

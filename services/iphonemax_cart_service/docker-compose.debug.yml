@@ -3,13 +3,13 @@
 version: '3.4'
 
 services:
-  ecomcatalogservice:
-    image: ecomcatalogservice
+  ecomcartservice:
+    image: ecomcartservice
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 5001:5001
+      - 5005:5005
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:

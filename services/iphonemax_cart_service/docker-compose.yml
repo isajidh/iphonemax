@@ -3,11 +3,10 @@
 version: '3.4'
 
 services:
-  ecomcatalogservice:
-    image: iphonemaxcatalogapiservice
+  iphonemax_cart_service:
+    image: iphonemax_cart_service
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 5001:5001
-      - 5000:5000
+      - 5005:5005
