@@ -69,9 +69,9 @@ export class Catalog extends Component {
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>
+                {/* <th>
                   Image
-                </th>
+                </th> */}
                 <th style={{ textAlign: "center" }}>Actions</th>
               </tr>
             </thead>
@@ -90,9 +90,6 @@ export class Catalog extends Component {
                     </td>
                     <td>
                       {item.price}
-                    </td>
-                    <td>
-                      image
                     </td>
                     <td align="center">
                       <div>

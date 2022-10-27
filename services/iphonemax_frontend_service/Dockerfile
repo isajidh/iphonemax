@@ -1,5 +1,5 @@
 # STAGE 2
-FROM nginx:stable-alpine
+FROM nginx:1.16-alpine
 COPY ./build /usr/share/nginx/html
 EXPOSE 80
 # EXPOSE 3000 

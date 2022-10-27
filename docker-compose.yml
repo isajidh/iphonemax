@@ -26,7 +26,7 @@ services:
     hostname: rabbitmq
 
   catalog_api_service:
-    image: ecomcatalogservice
+    image: iphonemaxcatalogapiservice
     build:
       context: services/iphonemax_catalog_api_service
       dockerfile: Dockerfile

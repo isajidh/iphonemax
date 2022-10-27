@@ -79,16 +79,21 @@ namespace Ecom.Catalog.Service
                 // c.RoutePrefix = string.Empty;
             });
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
+// Uncomment in dev environment
+            // if (env.IsDevelopment())
+            // {
+            //     app.UseDeveloperExceptionPage();
 
-                // Conguring CORS middleware to prevent errors from front end requests
-                app.UseCors(builder =>
+            //     // Conguring CORS middleware to prevent errors from front end requests
+            //     app.UseCors(builder =>
+            //     {
+            //         builder.WithOrigins(Configuration[AllowedOriginSettings]).AllowAnyHeader().AllowAnyMethod();
+            //     });
+            // }
+            app.UseCors(builder =>
                 {
                     builder.WithOrigins(Configuration[AllowedOriginSettings]).AllowAnyHeader().AllowAnyMethod();
                 });
-            }
 
             app.UseHttpsRedirection();
 
