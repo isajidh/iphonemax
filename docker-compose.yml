@@ -30,7 +30,6 @@ services:
     build:
       context: services/iphonemax_catalog_api_service
       dockerfile: Dockerfile
-    restart: always
     depends_on:
       - rabbitmq
       - mongo
@@ -44,7 +43,6 @@ services:
     build:
       context: services/iphonemax_cart_service
       dockerfile: Dockerfile
-    restart: always
     depends_on:
       - rabbitmq
       - mongo
