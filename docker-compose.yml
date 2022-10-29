@@ -25,10 +25,10 @@ services:
       - rabbitmqdata:/var/lib/rabbitmq
     hostname: rabbitmq
 
-  catalog_api_service:
-    image: iphonemaxcatalogapiservice
+  catalog-api-service:
+    image: iphonemax-catalog-api
     build:
-      context: services/iphonemax_catalog_api_service
+      context: services/iphonemax-catalog-api-service
       dockerfile: Dockerfile
     depends_on:
       - rabbitmq
@@ -38,10 +38,10 @@ services:
       - 5000:5000
     hostname: catalog
 
-  cart_service:
-    image: iphonemax_cart_service
+  cart-service:
+    image: iphonemax-cart-api
     build:
-      context: services/iphonemax_cart_service
+      context: services/iphonemax-cart-service
       dockerfile: Dockerfile
     depends_on:
       - rabbitmq
@@ -51,18 +51,18 @@ services:
       - 5004:5004
     hostname: cart
 
-  frontend_service:
-    image: ecomfrontend
+  frontend-service:
+    image: iphonemax-frontend
     build:
-      context: services/iphonemax_frontend_service
+      context: services/iphonemax-frontend-service
       dockerfile: Dockerfile
     environment:
       NODE_ENV: production
     ports:
       - 3000:80
     depends_on:
-      - catalog_api_service
-      - cart_service
+      - catalog-api-service
+      - cart-service
     hostname: frontend
 
 volumes:

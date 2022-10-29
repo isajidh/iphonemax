@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"ecomfrontend","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"ecomfrontend"}},"template":{"metadata":{"labels":{"app":"ecomfrontend"}},"spec":{"containers":[{"image":"ecomfrontend","imagePullPolicy":"IfNotPresent","name":"ecomfrontend","ports":[{"containerPort":5000}]}]}}}}
+  creationTimestamp: "2022-10-29T05:15:50Z"
+  generation: 1
+  name: ecomfrontend
+  namespace: default
+  resourceVersion: "12632"
+  uid: a4c7f3e5-4261-4212-a2e5-3a8d07462526
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ecomfrontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ecomfrontend
+    spec:
+      containers:
+        - image: ecomfrontend
+          imagePullPolicy: IfNotPresent
+          name: ecomfrontend
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  conditions:
+    - lastTransitionTime: "2022-10-29T05:15:50Z"
+      lastUpdateTime: "2022-10-29T05:15:50Z"
+      message: Deployment does not have minimum availability.
+      reason: MinimumReplicasUnavailable
+      status: "False"
+      type: Available
+    - lastTransitionTime: "2022-10-29T05:15:50Z"
+      lastUpdateTime: "2022-10-29T05:15:50Z"
+      message: ReplicaSet "ecomfrontend-66c54d749c" is progressing.
+      reason: ReplicaSetUpdated
+      status: "True"
+      type: Progressing
+  observedGeneration: 1
+  replicas: 1
+  unavailableReplicas: 1
+  updatedReplicas: 1
