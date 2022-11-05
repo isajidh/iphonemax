@@ -52,14 +52,14 @@ services:
     hostname: cart
 
   frontend-service:
-    image: iphonemax-frontend
+    image: iphonemax-frontend:v1.0.2
     build:
       context: services/iphonemax-frontend-service
       dockerfile: Dockerfile
     environment:
       NODE_ENV: production
     ports:
-      - 3000:80
+      - 3000:3000
     depends_on:
       - catalog-api-service
       - cart-service

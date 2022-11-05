@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-api-deployment
+  labels:
+    app: catalog-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-api
+  template:
+    metadata:
+      labels:
+        app: catalog-api
+    spec:
+      containers:
+        - name: catalog-api
+          image: sajidhmcr.azurecr.io/iphonemax-catalog-api:v1.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: "1"
+            requests:
+              memory: 128Mi
+              cpu: "0.2"
+          ports:
+            - containerPort: 5001
+          env:
+            - name: RABBIT_HOST
+              value: "mu-rabbit-rabbitmq.default.svc.cluster.local"
+            - name: RABBIT_PORT
+              value: "5672"
+            - name: RABBIT_USERNAME
+              value: user
+              # valueFrom:
+              #   secretKeyRef:
+              #     name: rabbit-secret
+              #     key: RABBIT_USERNAME
+            - name: RABBIT_PASSWORD
+              value: DQFnQ8IQWc
+              # valueFrom:
+              #   secretKeyRef:
+              #     name: rabbit-secret
+              #     key: RABBIT_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-api-service
+  labels:
+    app: catalog-api
+spec:
+  selector:
+    app: catalog-api
+  ports:
+    - protocol: TCP
+      name: http
+      port: 5001
+      targetPort: 5001
