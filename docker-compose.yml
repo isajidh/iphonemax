@@ -61,7 +61,7 @@ services:
       - "CART_ITEMS_API_URL=http://localhost:5004"
       - "RABBITMQ_URL=http://localhost:5672"
     ports:
-      - 3000:80
+      - 3000:3000
     depends_on:
       - catalog-api-service
       - cart-service
