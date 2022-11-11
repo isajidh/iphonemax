@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: docker.io/library/k8s-frontend
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: RABBIT_HOST
+              value: "mu-rabbit-rabbitmq.default.svc.cluster.local"
+            - name: RABBIT_PORT
+              value: "5672"
+            - name: RABBIT_USERNAME
+              value: guest
+              # valueFrom:
+              #   secretKeyRef:
+              #     name: rabbitmq-publisher
+              #     key: RABBIT_USERNAME
+            - name: RABBIT_PASSWORD
+              value: guest
+              # valueFrom:
+              #   secretKeyRef:
+              #     name: rabbitmq-publisher
+              #     key: RABBIT_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 80
+      nodePort: 30003
