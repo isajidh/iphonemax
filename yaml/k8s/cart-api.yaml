@@ -20,23 +20,6 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5005
-          env:
-            - name: RABBIT_HOST
-              value: "mu-rabbit-rabbitmq.default.svc.cluster.local"
-            - name: RABBIT_PORT
-              value: "5672"
-            - name: RABBIT_USERNAME
-              value: guest
-              # valueFrom:
-              #   secretKeyRef:
-              #     name: rabbitmq-publisher
-              #     key: RABBIT_USERNAME
-            - name: RABBIT_PASSWORD
-              value: guest
-              # valueFrom:
-              #   secretKeyRef:
-              #     name: rabbitmq-publisher
-              #     key: RABBIT_PASSWORD
 ---
 apiVersion: v1
 kind: Service
